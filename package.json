@@ -1,30 +1,35 @@
 {
-  "name": "json-db",
-  "version": "0.0.1",
-  "description": "JSON Database Library",
-  "main": "lib/json-db.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/rabrux/json-db.git"
-  },
-  "keywords": [
-    "node",
-    "json",
-    "database",
-    "lib",
-    "db",
-    "nosql"
-  ],
+  "name": "json-db-lib",
+  "version": "0.1.0",
+  "description": "Database library for lightweight databases based on JSON files",
   "author": {
     "name": "Raul Salvador Andrade",
     "email": "rsalvador@wat.mx"
   },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rabrux/json-db/issues"
+  "license": "MIT",
+  "homepage": "https://github.com/rabrux/json-db-lib",
+  "keywords": [
+    "node",
+    "json",
+    "database",
+    "db",
+    "lib",
+    "lightweight",
+    "nosql"
+  ],
+  "main": "lib/json-db-lib.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "coffee --output lib --compile src/json-db-lib.coffee"
   },
-  "homepage": "https://github.com/rabrux/json-db#readme"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rabrux/json-db-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rabrux/json-db-lib/issues"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.7.0"
+  }
 }
