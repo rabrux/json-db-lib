@@ -6,7 +6,7 @@ db =
 
 db.connect = ( path ) ->
 	if path
-		try 
+		try
 			stats = fs.lstatSync( path )
 			if stats.isDirectory()
 				@path = path.replace( /\/$/, '' ) + '/'
@@ -39,6 +39,8 @@ db.insert = ( table, obj ) ->
 
 db.select = ( table, query, values ) ->
 
+	query = query || '1=1'
+
 	@load table
 
 	result = []
@@ -52,7 +54,7 @@ db.select = ( table, query, values ) ->
 	query = r.join( ' ' )
 
 	for k, v of values
-		if typeof v == 'string'		
+		if typeof v == 'string'
 			query = query.split( k ).join( '"' + v + '"' )
 		else
 			query = query.split( k ).join( v )
@@ -102,7 +104,7 @@ db.delete = ( table, query, values ) ->
 	query = r.join( ' ' )
 
 	for k, v of values
-		if typeof v == 'string'		
+		if typeof v == 'string'
 			query = query.split( k ).join( '"' + v + '"' )
 		else
 			query = query.split( k ).join( v )
