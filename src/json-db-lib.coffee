@@ -39,9 +39,10 @@ db.insert = ( table, obj ) ->
 
 db.select = ( table, query, values ) ->
 
-	query = query || '1=1'
-
 	@load table
+
+	if !query
+		return @table
 
 	result = []
 

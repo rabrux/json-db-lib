@@ -1,6 +1,6 @@
 {
   "name": "json-db-lib",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Database library for lightweight databases based on JSON files",
   "author": {
     "name": "Raul Salvador Andrade",
