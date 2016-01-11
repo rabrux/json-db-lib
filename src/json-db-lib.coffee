@@ -72,7 +72,21 @@ db.select = ( table, query, values ) ->
 
 	return result
 
+db.like = ( table, key, value ) ->
+
+	@load table
+
+	result = []
+
+	for i in @table
+		if i[key].indexOf( value ) != -1
+			result.push i
+
+	result
+
 db.update = ( table, obj, find ) ->
+
+	@load table
 
 	query = []
 

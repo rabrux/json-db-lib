@@ -43,6 +43,12 @@ select( table, query, values )
 ```
 The select function returns a vector with of the collection **table** that match with the search **query**, the *query* param looks like "user == :user AND password == :password", and the values param is an object key: value, the keys must be equal to the query variables preceded by **:**
 
+#### like
+```javascript
+like( table, key, value )
+```
+The like function returns all rows that contains **value** in the column **key**
+
 #### update
 ```javascript
 update( table, obj, find )
