@@ -49,6 +49,12 @@ like( table, key, value )
 ```
 The like function returns all rows that contains **value** in the column **key**
 
+#### between
+```javascript
+between( table, key, value1, value2 )
+```
+between function returns all elements in the collection **table** that are in the range **value1 <= X <= value2** **X** is a value of column **key**
+
 #### update
 ```javascript
 update( table, obj, find )

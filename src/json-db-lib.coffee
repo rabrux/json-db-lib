@@ -84,6 +84,18 @@ db.like = ( table, key, value ) ->
 
 	result
 
+db.between = ( table, key, value1, value2 ) ->
+
+	@load table
+
+	result = []
+
+	for i in @table
+	  if i[key] >= value1 and i[key] <= value2
+	    result.push i
+
+	result
+
 db.update = ( table, obj, find ) ->
 
 	@load table
