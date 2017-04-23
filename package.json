@@ -1,0 +1,30 @@
+{
+  "name": "json-db-lib",
+  "version": "1.0.0",
+  "description": "library for lightweight databases based on JSON files",
+  "main": "lib/JsonDB.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "coffee --output lib --compile src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rabrux/json-db-lib.git"
+  },
+  "keywords": [
+    "node",
+    "json",
+    "database",
+    "db",
+    "lightweight",
+    "nosql"
+  ],
+  "author": "rabrux <n3ur0n4@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rabrux/json-db-lib/issues"
+  },
+  "homepage": "https://github.com/rabrux/json-db-lib#readme"
+}
