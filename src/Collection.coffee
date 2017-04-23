@@ -8,10 +8,13 @@ class Collection
     @getData().push item
     @save()
 
-  find : ( query = {} ) ->
+  find : ( query = {}, cb ) ->
     it = @
-    @getData().filter ( item, index ) ->
+    result = @getData().filter ( item, index ) ->
       return item if it.compare( item, query )
+
+    return cb result if cb
+    result
   
   compare : ( item, query ) ->
     flag = true
@@ -20,7 +23,7 @@ class Collection
 
     flag
 
-  update : ( query = {}, replace = {} ) ->
+  update : ( query = {}, replace = {}, cb ) ->
     ocurrences = @find query
     changed    = ocurrences.length
     
@@ -29,9 +32,10 @@ class Collection
       Object.assign @getData()[ index ], replace
     
     @save()
+    return cb changed if cb
     changed
 
-  remove : ( query = {} ) ->
+  remove : ( query = {}, cb ) ->
     ocurrences = @find query
     removed    = ocurrences.length
     
@@ -40,6 +44,7 @@ class Collection
       @getData().splice index, 1
 
     @save()
+    return cb removed if cb
     removed
 
   save : ->
