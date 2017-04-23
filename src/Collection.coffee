@@ -1,32 +1,8 @@
-fs   = require 'fs'
-path = require 'path'
-
-class JsonDB
-  
-  constructor : ( @_path = './' ) ->
-
-    stats = fs.lstatSync @_path
-    throw 'the specified path isnt directory' if not stats.isDirectory()
-    @setPath path.join @_path
-
-  save : ( collection ) ->
-    collectionName = collection.getName()
-    collectionData = collection.getData()
-    fileName = collectionName + '.json'
-    filePath = path.join @getPath(), fileName
-    
-    fs.writeFileSync filePath, JSON.stringify( collectionData, null, 2 ), ( err ) ->
-    # fs.writeFileSync filePath, JSON.stringify( collectionData ), ( err ) ->
-      throw err if err
-      console.log 'saved'
-
-  # getters and setters
-  getPath : -> @_path
-  setPath : ( @_path ) ->
-
 class Collection
-  
-  constructor : ( @_name, @__driver, @_data = [] ) ->
+    
+  constructor : ( @_name, @__driver ) ->
+    # load data if collection exists
+    @setData @getDriver().load( @_name )
 
   insert : ( item ) ->
     @getData().push item
@@ -77,3 +53,6 @@ class Collection
   setName : ( @_name ) ->
 
   getDriver : -> @__driver
+
+
+module.exports = Collection
