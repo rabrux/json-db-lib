@@ -8,6 +8,11 @@ class Collection
     @getData().push item
     @save()
 
+  findOne : ( query = {}, cb ) ->
+    result = @find( query ).shift()
+    return cb result if cb
+    result
+
   find : ( query = {}, cb ) ->
     it = @
     result = @getData().filter ( item, index ) ->
